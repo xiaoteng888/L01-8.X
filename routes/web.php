@@ -12,5 +12,8 @@ use App\Http\Controllers\IndexController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', [IndexController::class,"index"]);
-Route::get('/test', "App\Http\Controllers\IndexController@test");
+//Route::get('/', [IndexController::class,"index"]);
+//Route::get('/test', "App\Http\Controllers\IndexController@test");
+Route::get('/', 'StaticPagesController@home');
+Route::get('/help', 'StaticPagesController@help');
+Route::get('/about', 'StaticPagesController@about');
