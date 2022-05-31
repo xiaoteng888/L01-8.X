@@ -14,6 +14,6 @@ use App\Http\Controllers\IndexController;
 */
 //Route::get('/', [IndexController::class,"index"]);
 //Route::get('/test', "App\Http\Controllers\IndexController@test");
-Route::get('/', 'StaticPagesController@home');
-Route::get('/help', 'StaticPagesController@help');
-Route::get('/about', 'StaticPagesController@about');
+Route::get('/', 'StaticPagesController@home')->name('home');
+Route::get('/help', 'StaticPagesController@help')->name('help');
+Route::get('/about', 'StaticPagesController@about')->name('about');
