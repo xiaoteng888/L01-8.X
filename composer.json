@@ -11,7 +11,8 @@
         "jaeger/querylist": "^4.2",
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
-        "laravel/tinker": "^2.5"
+        "laravel/tinker": "^2.5",
+        "overtrue/laravel-lang": "~4.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
