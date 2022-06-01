@@ -8,6 +8,14 @@ use Illuminate\Support\Facades\Auth;
 
 class SessionsController extends Controller
 {
+    public function __construct()
+    {
+        //只能未登录访问的方法
+        $this->middleware('guest', [
+            'only' => ['create'],
+        ]);
+    }
+
     public function create()
     {
         return view('sessions.create');
@@ -23,13 +31,13 @@ class SessionsController extends Controller
         if(Auth::attempt($credentials, $request->has('remember'))){
             //登录成功
             session()->flash('success','欢迎回来');
-            return redirect()->route('users.show',['user' => Auth::user()]);
+            $fallback = route('users.show',['user' => Auth::user()]);
+            return redirect()->intended($fallback);
         }else{
             //登录失败
             session()->flash('danger', '账号或密码错误');
             return redirect()->back()->withInput();
         }
-        return;
     }
 
     public function destroy(Request $requets)
