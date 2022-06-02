@@ -10,7 +10,7 @@
            @include('shared._user_info', ['user'=> $user])
           </section>
           <section class="status">
-            @if($statuses->count() > 0)
+            {{--@if($statuses->count() > 0)
               <ul class="list-unstyled">
                 @foreach($statuses as $status)
                   @include('statuses._status', ['user'=>$user,'status'=>$status])
@@ -21,7 +21,8 @@
               </div>
             @else
               <p>没有数据!</p>
-            @endif
+            @endif--}}
+            @include('shared._feed')
           </section>
         </div>
       </div>

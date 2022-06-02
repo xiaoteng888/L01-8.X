@@ -61,4 +61,10 @@ class User extends Authenticatable
         $hash = md5(strtolower(trim($this->attributes['email'])));
         return "http://www.gravatar.com/avatar/$hash?s=$size";
     }
+
+    //取出当前用户所有的微博
+    public function feed()
+    {
+        return $this->statuses()->orderBy('created_at','desc');
+    }
 }
